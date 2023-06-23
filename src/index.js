@@ -1,5 +1,8 @@
 require('dotenv').config();
 const { Client, IntentsBitField, } = require('discord.js');
+const getGP = require('./Commands/gp.js');
+const { getBottasFact } = require('./Commands/bottasFacts');
+
 
 const client = new Client({
   intents: [
@@ -33,68 +36,5 @@ client.on('messageCreate', (message) => {
     message.reply(getBottasFact());
   }
   });
-
-function getGP(date) {
-  if (date < "2023-07-02") {
-    return "the Austrian GP on Sunday, July 2nd 2023 at the Red Bull Ring - Get ready for some high-speed action at the Red Bull Ring!";
-  } else if (date < "2023-07-09") {
-    return "the British GP on Sunday, July 9th 2023 at Silverstone - Prepare for a thrilling race at the historic Silverstone Circuit!";
-  } else if (date < "2023-07-23") {
-    return "the Hungarian GP on Sunday, July 23rd 2023 at the Hungaroring - Experience the twists and turns of the iconic Hungaroring!";
-  } else if (date < "2023-07-30") {
-    return "the Belgian GP on Sunday, July 30th 2023 at Spa-Francorchamps - Brace yourself for a challenging race at the legendary Spa-Francorchamps!";
-  } else if (date < "2023-08-27") {
-    return "the Dutch GP on Sunday, August 27th 2023 at Zandvoort - Feel the orange wave and witness the excitement at Zandvoort!";
-  } else if (date < "2023-09-03") {
-    return "the Italian GP on Sunday, September 3rd 2023 at Monza - Get your engines revved up for the high-speed race at the Temple of Speed, Monza!";
-  } else if (date < "2023-09-17") {
-    return "the Singapore GP on Sunday, September 17th 2023 at Marina Bay - Lights, glamour, and intense racing await you at the stunning Marina Bay Street Circuit!";
-  } else if (date < "2023-09-24") {
-    return "the Japanese GP on Sunday September 24th at Suzuka - Embark on a journey to Suzuka, the land of legendary battles and unforgettable moments!"
-  } else if (date < "2023-10-08") {
-    return "the Quatar GP on Sunday, October 8th 2023 at Losail - Experience the thrill of night racing under the dazzling lights of Losail!"
-  } else if (date < "2023-10-22") {
-    return "the United States GP on Sunday, October 22nd 2023 at Circuit of the Americas - Get ready for a taste of American racing spirit at the Circuit of the Americas!"
-  } else if (date < "2023-10-29") {
-    return "the Mexico City GP on Sunday, October 29th 2023 at Autódromo Hermanos Rodríguez - Feel the vibrant atmosphere and passion of Mexican racing at Autódromo Hermanos Rodríguez!"
-  } else if (date < "2023-11-05") {
-    return "the Brazilian GP on Sunday, November 5th 2023 at Interlagos - Witness the samba of speed at the iconic Interlagos circuit in Brazil!"
-  } else if (date < "2023-11-19") {
-    return "the Las Vegas GP on Sunday, November 19th 2023 at Las Vegas Street Circuit - Get ready for a spectacle of speed on the dazzling streets of Las Vegas!"
-  } else if (date < "2023-11-26") {
-    return "the Abu Dhabi GP on Sunday, November 26th 2023 at Yas Marina - Conclude the season in style at the glamorous Yas Marina Circuit in Abu Dhabi!"
-  } else if (date < "2024-03-17") { 
-    return "anticipated to be the Bahrain GP on Sunday March 3rd 2024 at Bahrain International Circuit (Sakhir) to start the 2024 season."
-  } 
-}
-
-function getBottasFact() {
-  let randomNumber = getRandomNumber();
-  if (randomNumber === 1) {
-    return "My car number is 77. When asked why I chose it I said \"Its pretty simple I liked seven, so I thought seven-seven would be good. And actually seven was already taken by Kimi [Räikkönen]. So then I just thought double seven would be good, so go for it.\"";
-  } else if (randomNumber === 2) {
-    return "I was born in Finland but currently reside in Monaco."
-  } else if (randomNumber === 3) {
-    return "I served in the Finnish military and earned the rank of Lance Corporal."
-  } else if (randomNumber === 4) {
-    return "Prior to racing with Alfa Romeo, I raced for Mercedes and Williams."
-  } else if (randomNumber === 5) {
-    return "I have 10 race wins, 67 podiums, and 20 pole positions."
-  } else if (randomNumber === 6) {
-    return "I am a punk rock fan and my favorite band is The Offspring."
-  } else if (randomNumber === 7) {
-    return "I have an amazing car collection including a 1992 Ferrari F40, a Mclaren 675LT, a Mercedes AMG GT, and a Mercedes Benz C63 AMG."
-  } else if (randomNumber === 8) {
-    return "I have several business ventures outside of racing including a gluten-free pizzeria on wheels, a gin company, and cycling sponsorships."
-  } else if (randomNumber === 9) {
-    return "I enjoy making homemade pizza in my woodfired pizza oven at home."
-  } else if (randomNumber === 10) {
-    return "My racing hero is Mika Hakkinen."
-  }
-}
-
-function getRandomNumber() {
-  return Math.floor(Math.random() * 2) + 1;
-}
 
 client.login(process.env.TOKEN)

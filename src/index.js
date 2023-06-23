@@ -37,4 +37,11 @@ client.on('messageCreate', (message) => {
   }
   });
 
+client.on('interactionCreate', (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  console.log(interaction.commandName === 'hey')
+  interaction.reply('Hei! This means hello in my native Finnish.')
+});
+
 client.login(process.env.TOKEN)

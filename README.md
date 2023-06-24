@@ -14,8 +14,8 @@
             <img src="https://img.shields.io/github/issues/MarcusKyung/RecipeBox2.Solution?style=plastic">
         </a>
         ¨
-        <a href="https://github.com/MarcusKyung/Valtteri-BOTtas/blob/main/LICENSE.txt">
-            <img src="https://img.shields.io/github/license/MarcusKyung/RecipeBox2.Solution?color=orange&style=plastic">
+        <a href="https://github.com/MarcusKyung/Valtteri-BOTtas/blob/main/license.txt">
+            <img src="https://img.shields.io/github/license/MarcusKyung/Valtteri-BOTtas?color=orange&style=plastic">
         </a>
         ¨
         <a href="https://linkedin.com/in/MarcusKyung">
@@ -28,17 +28,22 @@
 
 #### _This Valtteri Bottas themed discord bot is designed to interact with users when prompted._
 
+<img src="https://media1.giphy.com/media/6iWedW7q9zHBEYg0RZ/giphy.gif?cid=ecf05e47eqjaypjag2d96ugvqb9aj5t8to39pzq7ldluz5u2&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="200"/>
+
 ## Contents:
 * [Technologies Used](#technologies-used)
 * [Description](#description)
 * [Setup & installation](#setupinstallation-requirements)
-* [Known-bugs](#known-bugs)
+* [Current Bot Commands](#current-bot-commands)
+* [Planned Bot Commands](#planned-bot-commands)
+* [Additional Bot Features](#additional-bot-features)
+* [Known Bugs](#known-bugs)
 * [License](#license)
 
 ## Technologies Used:
 * _JavaScript_
 * _Node Package Manager_
-* _Discord.js_
+* _Discord.js 14.11.0_
 * _dotenv 16.3.1_
 
 ## Description:
@@ -70,12 +75,13 @@ The bot is currently configured to reply to the below message and slash commands
 | /teammate                                          | Returns an embed with info about Zhou Guanyu       |
 
 ## Planned Bot Commands:
+* _F1 Trivia_ - the bot will be able to provide trivia questions to server members.
 
 ## Additional Bot Features:
 * _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 
 ## Known Bugs:
-* _No known bugs as of 6/22/23._
+* _No known bugs as of 6/23/23._
 
 ## License:
 _For questions, comments, or concerns please reach out at Kyungmj@gmail.com_

@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder } = require('discord.js');
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 
@@ -40,8 +40,26 @@ client.on('messageCreate', (message) => {
 client.on('interactionCreate', (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  console.log(interaction.commandName === 'hey')
-  interaction.reply('Hei! This means hello in my native Finnish.')
+  if (interaction.commandName === 'c43') {
+    const embed = new EmbedBuilder()
+                      .setTitle("About the C43")
+                      .setURL("https://www.sauber-group.com/motorsport/formula-1/c43/")
+                      .setDescription("The Alfa Romeo C43 is a Formula One car designed and built by Alfa Romeo competing in the 2023 Formula One World Championship. The car is driven by Valtteri Bottas and Zhou Guanyu, both in their second year at the team.")
+                      .setThumbnail("https://media.formula1.com/image/upload/content/dam/fom-website/manual/2023/Launches2023/AlfaRomeoLaunch/C43_Top_LM_ZHO_4-5.jpg.transform/9col/image.jpg")
+                      .setColor(0xa51c2f)
+                      .setImage("https://media.formula1.com/image/upload/content/dam/fom-website/manual/2023/Launches2023/AlfaRomeoLaunch/C43_Front-Dynamic-Left-V4_LM_BOT_4-5.jpg.transform/9col/image.jpg")
+                      .setTimestamp()
+    interaction.reply({ embeds: [embed] })
+  } else if (interaction.commandName === 'teammate') {
+                      const embed = new EmbedBuilder()
+                      .setTitle("About Zhou Guanyu")
+                      .setURL("https://www.sauber-group.com/motorsport/formula-1/team/zhou-guanyu/")
+                      .setDescription("Zhou Guanyu is a Chinese racing driver currently competing in Formula 1 for Alfa Romeo. He is the first Chinese driver to compete in Formula 1 and is in his second season.")
+                      .setThumbnail("https://www.sauber-group.com/wp-content/uploads/2023/02/LM-Stake_ZHO_RS_fullbody_leftSide_0630n.jpg")
+                      .setColor(0xa51c2f)
+                      .setTimestamp()
+    interaction.reply({ embeds: [embed] })
+  }
 });
 
 client.login(process.env.TOKEN)

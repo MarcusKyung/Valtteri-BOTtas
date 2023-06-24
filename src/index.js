@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, EmbedBuilder, ActivityType, Activity } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord.js');
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 
@@ -13,7 +13,7 @@ const client = new Client({
   ]
 })
 
-let status = [
+let status = [ //array of bot statuses
   {
     name: "F1 2023",
     type: ActivityType.Playing
@@ -33,9 +33,9 @@ client.on('ready', (client) => {
   console.log(`✅${client.user.tag} is online`)
 
   setInterval(() => {
-    const random = Math.floor(Math.random() * status.length)
-    client.user.setActivity(status[random])
-  }, 600000);
+    const random = Math.floor(Math.random() * status.length) //Generates a random number between 0 and the length of the status array
+    client.user.setActivity(status[random]) //sets the status to a random element in the status array
+  }, 600000); //refreshes every 10 minutes (600 seconds)
   });
 
 client.on('messageCreate', (message) => {

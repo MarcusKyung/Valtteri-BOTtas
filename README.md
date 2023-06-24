@@ -71,6 +71,8 @@ The bot is currently configured to reply to the below message and slash commands
 
 ## Planned Bot Commands:
 
+## Additional Bot Features:
+* _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 
 ## Known Bugs:
 * _No known bugs as of 6/22/23._

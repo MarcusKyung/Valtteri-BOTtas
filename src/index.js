@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, EmbedBuilder } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder, ActivityType, Activity } = require('discord.js');
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 
@@ -13,8 +13,29 @@ const client = new Client({
   ]
 })
 
+let status = [
+  {
+    name: "F1 2023",
+    type: ActivityType.Playing
+  },
+  {
+    name: "The Offspring",
+    type: ActivityType.Listening
+  },
+  {
+    name: "VB Best Moments with Mercedes",
+    type: ActivityType.Streaming,
+    url: "https://www.youtube.com/watch?v=iW7V3Bw8-ws&ab_channel=FORMULA1",
+  },
+]
+
 client.on('ready', (client) => {
   console.log(`✅${client.user.tag} is online`)
+
+  setInterval(() => {
+    const random = Math.floor(Math.random() * status.length)
+    client.user.setActivity(status[random])
+  }, 600000);
   });
 
 client.on('messageCreate', (message) => {
@@ -38,7 +59,7 @@ client.on('messageCreate', (message) => {
   });
 
 client.on('interactionCreate', (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) return; //code below will only run if the interaction is a slash command
 
   if (interaction.commandName === 'c43') {
     const embed = new EmbedBuilder()

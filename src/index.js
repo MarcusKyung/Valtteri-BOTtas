@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord.js');
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
+const { getBottasOpinion } = require('./Commands/bottasOpinions.js');
 
 const client = new Client({
   intents: [
@@ -42,7 +43,7 @@ client.on('ready', (client) => {
 });
 
 client.on('messageCreate', (message) => {
-  console.log(message.content);
+  // console.log(message.content); //can include this line to console.log all user and bot messages. Because this is above the below conditional statement it will log all messages, not just the ones that trigger a response
   if (message.author.bot){ //checks if message was sent by bot to prevent infinite loops of bot replying to itself
     return;
   } 
@@ -58,8 +59,12 @@ client.on('messageCreate', (message) => {
     message.reply("I am a Discord Bot, however the real Valtteri Bottas is a Finnish racing driver currently competing in Formula 1 for Alfa Romeo.");
   } else if (message.content === "Give me a Valtteri Bottas fact") {
     message.reply(getBottasFact());
+  } else if (message.content.toLowerCase().startsWith("does valtteri like")) {
+    const query = message.content.replace(/does valtteri like/i, "").replace("?", "").trim().toUpperCase();
+    console.log(query);
+    message.reply(getBottasOpinion(query));
   }
-  });
+});
 
 client.on('interactionCreate', (interaction) => {
   if (!interaction.isChatInputCommand()) return; //code below will only run if the interaction is a slash command

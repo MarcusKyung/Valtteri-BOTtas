@@ -3,6 +3,7 @@ const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 const { getBottasOpinion } = require('./Commands/bottasOpinions.js');
+const checkDriverBirthday = require('./Commands/checkDriverBirthday.js');
 
 const client = new Client({
   intents: [
@@ -35,7 +36,17 @@ client.on('ready', (client) => {
   const channel = client.channels.cache.get(process.env.CHANNEL_ID); 
   channel.send('hello!'); //This is also going to console.log hello/gif below due to Discord.js default behavior
   channel.send('https://media3.giphy.com/media/QXOl0Pw5eZRDld0IlF/giphy.gif?cid=ecf05e47e49p2r1iu0nq81ccnp4kam75qol9huo2fhn9valb&ep=v1_gifs_search&rid=giphy.gif&ct=g');
-
+  
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const formattedDate = `${month}-${day}`;
+  console.log(formattedDate)
+  let birthday = checkDriverBirthday(formattedDate);
+  if (birthday) {
+    channel.send(birthday);
+  }
+  
   setInterval(() => {
     const random = Math.floor(Math.random() * status.length) //Generates a random number between 0 and the length of the status array
     client.user.setActivity(status[random]) //sets the status to a random element in the status array
@@ -88,7 +99,7 @@ client.on('interactionCreate', (interaction) => {
                       .setColor(0xa51c2f)
                       .setTimestamp()
     interaction.reply({ embeds: [embed] })
-  }
+  } 
 });
 
 client.login(process.env.TOKEN)

@@ -3,7 +3,6 @@ const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 
-
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
@@ -13,7 +12,7 @@ const client = new Client({
   ]
 })
 
-let status = [ //array of bot statuses
+let status = [ //array of available bot statuses
   {
     name: "F1 2023",
     type: ActivityType.Playing
@@ -32,15 +31,19 @@ let status = [ //array of bot statuses
 client.on('ready', (client) => {
   console.log(`✅${client.user.tag} is online`)
 
+  const channel = client.channels.cache.get(process.env.CHANNEL_ID); 
+  channel.send('hello!'); //This is also going to console.log hello/gif below due to Discord.js default behavior
+  channel.send('https://media3.giphy.com/media/QXOl0Pw5eZRDld0IlF/giphy.gif?cid=ecf05e47e49p2r1iu0nq81ccnp4kam75qol9huo2fhn9valb&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+
   setInterval(() => {
     const random = Math.floor(Math.random() * status.length) //Generates a random number between 0 and the length of the status array
     client.user.setActivity(status[random]) //sets the status to a random element in the status array
   }, 600000); //refreshes every 10 minutes (600 seconds)
-  });
+});
 
 client.on('messageCreate', (message) => {
   console.log(message.content);
-  if (message.author.bot){
+  if (message.author.bot){ //checks if message was sent by bot to prevent infinite loops of bot replying to itself
     return;
   } 
 

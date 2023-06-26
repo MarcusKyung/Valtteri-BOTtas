@@ -35,8 +35,8 @@
 * [Description](#description)
 * [Setup & installation](#setupinstallation-requirements)
 * [Current Bot Commands](#current-bot-commands)
+* [Additional Current Bot Features](#additional-current-bot-features)
 * [Planned Bot Commands](#planned-bot-commands)
-* [Additional Bot Features](#additional-bot-features)
 * [Known Bugs](#known-bugs)
 * [License](#license)
 
@@ -53,35 +53,47 @@ This discord bot is designed to interact with users when prompted. It is named a
 1. Clone this repo from GH to your local machine.
 2. In root directory of the file called Valtteri-BOTtas, add a file titled `.env`.
 3. Within `.env`, put in your Discord Bot token using the formatting `TOKEN = [your token here]`.
-4. Using your device's terminal navigate to the production directory, "/Valtteri-BOTtas", and run the command: ```nodemon```. Doing so will launch the bot, you should see a confirmation message in your console.
+4. Using your device's terminal navigate to the production directory, "/Valtteri-BOTtas", and run the command: ```nodemon```. Doing so will launch the bot, you should see a confirmation message in your console. The bot will also appear as online in your discord server with a Playing, Watching, or Listening status which rotates every 10 minutes. The bot will also send a channel message saying "hello" and a preset "welcome" gif.
 5. Interact with the bot via your discord server. 
 
 ## Current Bot Commands:
 The bot is currently configured to reply to the below message and slash commands:
 
 ### Message Commands: 
-| User Input:                                        | Bot Response:                                      |                    
-| -------------------------------------------------- | -------------------------------------------------- |                   
-| "Hello", "hello", "Hi"                             | Returns greeting                                   |
-| "Help", "help"                                     | Shares list of available commands                  |
-| "When is the next GP?", "When is the next race?"   | Returns next GP date and location                  |
-| "Who are you?", "Who is Valtteri Bottas?"          | Returns brief bio                                  |
-| "Give me a Valtteri Bottas fact"                   | Returns one of 10 random facts about Valtteri      |
+| User Input:                                        | Bot Response:                                                      |                    
+| -------------------------------------------------- | ------------------------------------------------------------------ |                   
+| "Hello", "hello", "Hi"                             | Returns greeting                                                   |
+| "Help", "help"                                     | Shares list of available commands                                  |
+| "When is the next GP?", "When is the next race?"   | Returns next GP date and location                                  |
+| "Who are you?", "Who is Valtteri Bottas?"          | Returns brief bio                                                  |
+| "Give me a Valtteri Bottas fact"                   | Returns one of 10 random facts about Valtteri                      |
+| "Does Valtteri like (XYZ)"                         | A thumbs up/down or shrug gif reply based on listed likes/dislikes |
 
 ### Slash Commands: 
-| Slash Command Input:                               | Bot Response:                                      |                    
-| -------------------------------------------------- | -------------------------------------------------- |                   
-| /c43                                               | Returns an embed with info on the Alfa Romeo C43   |
-| /teammate                                          | Returns an embed with info about Zhou Guanyu       |
+| Slash Command Input:                               | Bot Response:                                                      |                    
+| -------------------------------------------------- | ------------------------------------------------------------------ |                   
+| /c43                                               | Returns an embed with info on the Alfa Romeo C43                   |
+| /teammate                                          | Returns an embed with info about Zhou Guanyu                       |
 
-## Planned Bot Commands:
-* _F1 Trivia_ - the bot will be able to provide trivia questions to server members.
-
-## Additional Bot Features:
+## Additional Current Bot Features:
+* _Welcome Message on startup_ - upon startup the bot will say "hello" and send a preset welcome gif.
 * _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 
+## Planned Bot Commands/Features:
+* _F1 Trivia_ - the bot will be able to provide trivia questions to server members about Valtteri, and keep their score"
+* _F1 Team Standings_ - the will be able to connect to an API and return current F1 standings or race results. Ideally, this will be my F1 API here: https://github.com/MarcusKyung/F1DriverAPI.Solution.
+* _Bottas Race Standings_ - the will be able to connect to an API and return current Valtteri's points/results.
+* _F1 birthday messges_ - the bot will send a message to the server when it is a F1 driver's birthday.
+* _Slash command for VB merch_ - the bot will have a slash command for server users to view Valtteri's Alfa Romeo merch.
+* _Slash to see random VB gif_ - the bot will return a random Valtteri Bottas gif either using a list or through a giphy API call
+* _Slash to see random VB gif_ - the bot will return a random Valtteri Bottas gif either using a list or through a giphy API call
+* _Race Countdown_ - the bot will return a countdown to the next GP.
+* _Track information_ - the bot will return information on each track when prompted.
+* _Race Weather Updates_ - the bot will return weather forecasts, track conditions, and any potential impact on the race.
+* _F1 News Updates_ the bot will use an API or RSS feed to fetch the latest Formula 1 news and updates. The bot will periodically post news articles, interviews, and announcements from reliable sources on a scheduled interval.
+
 ## Known Bugs:
-* _No known bugs as of 6/23/23._
+* _No known bugs as of 6/25/23._
 
 ## License:
 _For questions, comments, or concerns please reach out at Kyungmj@gmail.com_

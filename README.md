@@ -36,7 +36,7 @@
 * [Setup & installation](#setupinstallation-requirements)
 * [Current Bot Commands](#current-bot-commands)
 * [Additional Current Bot Features](#additional-current-bot-features)
-* [Planned Bot Commands](#planned-bot-commands)
+* [Future Bot Features](#future-bot-features)
 * [Known Bugs](#known-bugs)
 * [License](#license)
 
@@ -44,10 +44,10 @@
 * _JavaScript_
 * _Node Package Manager_
 * _Discord.js 14.11.0_
-* _dotenv 16.3.1_
+* _Dotenv 16.3.1_
 
 ## Description:
-This discord bot is designed to interact with users when prompted. It is named after Finnish Formula 1 racing driver Valtteri Bottas. When prompted by a server member the bot replies to the user's message. 
+This discord bot is designed to interact with users when prompted. It is named after Finnish Formula 1 racing driver Valtteri Bottas. When prompted by a user via slash command or message the bot will return a reply/response. This bot also has additional features upon startup. View all features below.
 
 ## Setup/Installation Requirements:
 1. Clone this repo from GH to your local machine.
@@ -81,7 +81,7 @@ The bot is currently configured to reply to the below message and slash commands
 * _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 * _Happy Birthday Messages_ - the bot will send a message to the server when it is a driver's birthday, otherwise no message is sent on startup.
 
-## Planned Bot Commands/Features:
+## Future Bot Features:
 * _F1 Trivia_ - the bot will be able to provide trivia questions to server members about Valtteri, and keep their score"
 * _F1 Team Standings_ - the will be able to connect to an API and return current F1 standings or race results. Ideally, this will be my F1 API here: https://github.com/MarcusKyung/F1DriverAPI.Solution.
 * _Bottas Race Standings_ - the will be able to connect to an API and return current Valtteri's points/results.

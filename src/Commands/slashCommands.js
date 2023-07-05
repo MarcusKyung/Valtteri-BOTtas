@@ -24,7 +24,15 @@ module.exports = {
                       .setColor(0xa51c2f)
                       .setTimestamp()
     interaction.reply({ embeds: [embed] })
-  }  
+  } else if (interaction.commandName === 'merch') {
+                      const embed = new EmbedBuilder()
+                      .setTitle("Official Alfa Romeo Teamwear")
+                      .setURL("https://www.code-zero.com/racing/official-teamwear/")
+                      .setDescription("Buy official Alfa Romeo Teamwear here")
+                      .setColor(0xa51c2f)
+                      .setTimestamp()
+    interaction.reply({ embeds: [embed] })
+  }
 
     const subcommand = interaction.options.getSubcommand();
   

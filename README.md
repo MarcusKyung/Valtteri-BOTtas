@@ -75,24 +75,26 @@ The bot is currently configured to reply to the below message and slash commands
 | /c43                                               | Returns an embed with info on the Alfa Romeo C43                   |
 | /teammate                                          | Returns an embed with info about Zhou Guanyu                       |
 | /track (_track name_)                              | Returns an embed with info specific tracks/circuts                 |
+| /merch                                             | Returns an embed linking to the official Alfa Romeo teamwear site  |
 
 ## Additional Current Bot Features:
 * _Welcome Message on startup_ - upon startup the bot will say "hello" and send a preset welcome gif.
 * _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 * _Happy Birthday Messages_ - the bot will send a message to the server when it is a driver's birthday, otherwise no message is sent on startup.
+* _Slash command for VB merch_ - the bot will have a slash command for server users to view Valtteri's Alfa Romeo merch.
+
 
 ## Future Bot Features:
 * _F1 Trivia_ - the bot will be able to provide trivia questions to server members about Valtteri, and keep their score"
 * _F1 Team Standings_ - the will be able to connect to an API and return current F1 standings or race results. Ideally, this will be my F1 API here: https://github.com/MarcusKyung/F1DriverAPI.Solution.
 * _Bottas Race Standings_ - the will be able to connect to an API and return current Valtteri's points/results.
-* _Slash command for VB merch_ - the bot will have a slash command for server users to view Valtteri's Alfa Romeo merch.
 * _Slash to see random VB gif_ - the bot will return a random Valtteri Bottas gif either using a list or through a giphy API call
 * _Race Countdown_ - the bot will return a countdown to the next GP.
 * _Race Weather Updates_ - the bot will return weather forecasts, track conditions, and any potential impact on the race.
 * _F1 News Updates_ the bot will use an API or RSS feed to fetch the latest Formula 1 news and updates. The bot will periodically post news articles, interviews, and announcements from reliable sources on a scheduled interval.
 
 ## Known Bugs:
-* _No known bugs as of 6/25/23._
+* _No known bugs as of 7/4/23._
 
 ## License:
 _For questions, comments, or concerns please reach out at Kyungmj@gmail.com_

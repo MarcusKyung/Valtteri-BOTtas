@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 
+//Register new commands with "node src/regsiter-commands.js" in the terminal
 const commands = [
   {
     name: 'c43',
@@ -9,6 +10,10 @@ const commands = [
   {
     name: 'teammate',
     description: "Replies with info about Valtteri's teammate, Zhou Guanyu"
+  },
+  {
+    name: 'merch',
+    description: "Replies with info about Alfa Romeo official team merch"
   },
   {
     name: "tracks",

@@ -111,7 +111,7 @@ _Note: the bot uses OpenWeatherAPI to get current weather data. The bot will onl
 * _Activity Status_ - the bot will display a random activity status every 10 minutes based on a list of 3 activities.
 * _Happy Birthday Messages_ - the bot will send a message to the server when it is a driver's birthday, otherwise no message is sent on startup.
 * _Slash command for VB merch_ - the bot will have a slash command for server users to view Valtteri's Alfa Romeo merch.
-* _Race Weather Updates_ - the bot uses the OpenWeatherAPI to return temp, humidity, weather description, and wind info along with a comment about the track conditions.
+* _Race Weather Updates_ - the bot uses the OpenWeatherAPI to return temp, humidity, weather description, and wind info along with a comment about the track conditions. This feature is only available for 2023 circuit locations. Usage of this command is a little clunky since the API requires specific formatting and track naming conventions ("What are weather and track conditions like at (XYZ)?"). Refactor is planned in future updates.
 
 
 ## Future Bot Features:

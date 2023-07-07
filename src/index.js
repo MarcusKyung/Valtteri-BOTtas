@@ -1,10 +1,12 @@
 require('dotenv').config();
-const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord.js');
+const { Client, IntentsBitField, ActivityType } = require('discord.js');
 const getGP = require('./Commands/gp.js');
 const { getBottasFact } = require('./Commands/bottasFacts');
 const { getBottasOpinion } = require('./Commands/bottasOpinions.js');
 const checkDriverBirthday = require('./Commands/checkDriverBirthday.js');
 const slashCommands = require('./Commands/slashCommands.js');
+const weatherApi = require('./Commands/trackConditions.js');
+
 
 
 const client = new Client({
@@ -55,7 +57,7 @@ client.on('ready', (client) => {
   }, 600000); //refreshes every 10 minutes (600 seconds)
 });
 
-client.on('messageCreate', (message) => {
+client.on('messageCreate', async (message) => {
   // console.log(message.content); //can include this line to console.log all user and bot messages. Because this is above the below conditional statement it will log all messages, not just the ones that trigger a response
   if (message.author.bot){ //checks if message was sent by bot to prevent infinite loops of bot replying to itself
     return;
@@ -76,8 +78,21 @@ client.on('messageCreate', (message) => {
     const query = message.content.replace(/does valtteri like/i, "").replace("?", "").trim().toUpperCase();
     console.log(query);
     message.reply(getBottasOpinion(query));
+  } else if (message.content.startsWith('What are weather and track conditions like at')) {
+    const circuit = message.content.replace(/What are weather and track conditions like at/i, "").replace("?", "").trim().toLowerCase();
+    console.log(circuit);
+    const conditions = await weatherApi.getWeatherConditions(circuit);
+    if (conditions) {
+      const reply = `The weather at ${circuit.toUpperCase()} is ${conditions.description} with a temperature of ${conditions.temperature}°F and a humidity of ${conditions.humidity}%. Wind conditions are ${conditions.windSpeed}mph at ${conditions.windDegree}°`;
+      const driverComment = `${conditions.comment}.`;
+      message.reply(reply);
+      message.reply(driverComment);
+    } else {
+      message.reply("Sorry, either the circuit is invalid or there was an error retrieving the weather conditions.");
+    }
   }
 });
+
 
 client.on('interactionCreate', (interaction) => {
   slashCommands.handleSlashCommand(interaction);

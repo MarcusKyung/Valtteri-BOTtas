@@ -126,10 +126,26 @@ client.on("messageCreate", async (message) => {
       );
     }
   } else if (message.content === "How many points does Valtteri have?") {
-    const points = await getBottasPoints();
-    if (points) {
-      const pointsReply = `Valtteri has ${points.careerPoints} career points`;
+    const stats = await getBottasPoints();
+    if (stats) {
+      const pointsReply = `Valtteri has ${stats.careerPoints} career points`;
       message.reply(pointsReply);
+    } else {
+      message.reply("Sorry, we can't pull that info right now.");
+    }
+  } else if (message.content === "How many podiums does Valtteri have?") {
+    const stats = await getBottasPoints();
+    if (stats) {
+      const podiumsReply = `Valtteri has ${stats.podiums} podiums`;
+      message.reply(podiumsReply);
+    } else {
+      message.reply("Sorry, we can't pull that info right now.");
+    }
+  } else if (message.content === "How many race wins does Valtteri have?") {
+    const stats = await getBottasPoints();
+    if (stats) {
+      const raceWinsReply = `Valtteri has ${stats.raceWins} podiums`;
+      message.reply(raceWinsReply);
     } else {
       message.reply("Sorry, we can't pull that info right now.");
     }

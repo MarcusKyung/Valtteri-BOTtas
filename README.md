@@ -61,9 +61,9 @@ This discord bot is designed to interact with users when prompted. It is named a
 
 1. Clone this repo from GH to your local machine.
 2. In root directory of the file called Valtteri-BOTtas, add a file titled `.env`.
-3. Within `.env`, put in your Discord Bot token using the formatting `TOKEN = [your token here]`.
+3. Within `.env`, put in your Discord Bot token using the formatting `TOKEN = [your token here]`. Other needed tokens are as follows: `GUILD_ID`, `CLIENT_ID`, `CHANNEL_ID`, `API_KEY`
 4. Using your device's terminal navigate to the production directory, "/Valtteri-BOTtas", and run the command: `nodemon`. Doing so will launch the bot, you should see a confirmation message in your console. The bot will also appear as online in your discord server with a Playing, Watching, or Listening status which rotates every 10 minutes. The bot will also send a channel message saying "hello" and a preset "welcome" gif.
-5. Interact with the bot via your discord server.
+5. Interact with the bot via your discord server chat and slash command line.
 
 ## Current Bot Commands:
 
@@ -128,6 +128,7 @@ _Note(2): this API is in development and being hosted locally. Once deployed thr
 - _Happy Birthday Messages_ - the bot will send a message to the server when it is a driver's birthday, otherwise no message is sent on startup.
 - _Slash command for VB merch_ - the bot will have a slash command for server users to view Valtteri's Alfa Romeo merch.
 - _Race Weather Updates_ - the bot uses the OpenWeatherAPI to return temp, humidity, weather description, and wind info along with a comment about the track conditions. This feature is only available for 2023 circuit locations. Usage of this command is a little clunky since the API requires specific formatting and track naming conventions ("What are weather and track conditions like at (XYZ)?"). Refactor is planned in future updates.
+- _VB Career Stats_ - the bot can call my F1DriverAPI (https://github.com/MarcusKyung/F1DriverAPI.Solution) to get info on Valtteri's career points, podiums, and race wins. This API is currently being hosted locally and will be deployed through a cloud service in the future. In order to use this feature the API must be running.
 
 ## Future Bot Features:
 

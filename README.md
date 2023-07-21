@@ -81,6 +81,7 @@ The bot is currently configured to reply to the below message and slash commands
 | "Does Valtteri like (XYZ)"                                | A thumbs up/down or shrug gif reply based on listed likes/dislikes  |
 | "What are weather and track conditions like at (XYZ)?"(1) | Returns the temp, humidity, wind info, and a comment on the weather |
 | "How many points does Valtteri have?"(2)                  | Returns total career points (dependent on F1DriverAPI)              |
+| "Which driver is in (place)? (2)                          | Returns name of driver, season points, and what place they are in   |
 
 _Note(1): the bot uses OpenWeatherAPI to get current weather data. The bot will only return weather data for 2023 circuit locations. Locations must be queried using specific formatting and track naming conventions ("What are weather and track conditions like at (XYZ)?"). The bot will return a message if the track/circuit is not listed in the API._
 
@@ -130,7 +131,7 @@ _Note(2): this API is in development and being hosted locally. Once deployed thr
 - _Race Weather Updates_ - the bot uses the OpenWeatherAPI to return temp, humidity, weather description, and wind info along with a comment about the track conditions. This feature is only available for 2023 circuit locations. Usage of this command is a little clunky since the API requires specific formatting and track naming conventions ("What are weather and track conditions like at (XYZ)?"). Refactor is planned in future updates.
 - _VB Career Stats_ - the bot can call my F1DriverAPI (https://github.com/MarcusKyung/F1DriverAPI.Solution) to get info on Valtteri's career points, podiums, and race wins. This API is currently being hosted locally and will be deployed through a cloud service in the future. In order to use this feature the API must be running.
 
-## Future Bot Features:
+## Future Planned Bot Features:
 
 - _F1 Trivia_ - the bot will be able to provide trivia questions to server members about Valtteri, and keep their score"
 - _F1 Team Standings_ - the will be able to connect to an API and return current F1 standings or race results. Ideally, this will be my F1 API here: https://github.com/MarcusKyung/F1DriverAPI.Solution.
@@ -141,7 +142,7 @@ _Note(2): this API is in development and being hosted locally. Once deployed thr
 
 ## Known Bugs:
 
-- _No known bugs as of 7/4/23._
+- _Message command "Which driver is in (place)" only recognizes specific input place names i.e. "first", "second", "tenth" etc. for "first" through "twentyfirst". This is due to the way the command is parsed and passed to getWDCPlaces.js. Future refactor will include a more robust way to parse the input and pass it to the API call to include other semanticly correct inputs such as "1st", "2nd", "10th" etc. Alternatively, this feature may be scrapped in favor of a slash command which simply returns the full table of standings._
 
 ## License:
 

@@ -25,10 +25,6 @@ const circuitCoordinates = {
   interlagos: { lat: -23.7036, lon: -46.6997 },
   lasvegas: { lat: 36.2661, lon: -115.1797 },
   yasmarina: { lat: 24.4672, lon: 54.6031 },
-
-
-
-  // Add more circuits and their coordinates as needed
 };
 
 async function getWeatherConditions(circuit) {

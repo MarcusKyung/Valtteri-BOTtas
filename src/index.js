@@ -7,6 +7,7 @@ const checkDriverBirthday = require("./Commands/checkDriverBirthday.js");
 const slashCommands = require("./Commands/slashCommands.js");
 const weatherApi = require("./Commands/trackConditions.js");
 const { getBottasPoints } = require("./Commands/getPoints.js");
+const { getWDCPlaces } = require("./Commands/getWDCPlaces.js");
 
 const client = new Client({
   intents: [
@@ -67,9 +68,7 @@ client.on("messageCreate", async (message) => {
   }
 
   if (
-    message.content === "Hello" ||
-    message.content === "hello" ||
-    message.content === "Hi"
+    message.content === "Hello" || message.content === "hello" || message.content === "Hi"
   ) {
     message.reply("Hei! This means hello in my native Finnish.");
   } else if (message.content === "Help" || message.content === "help") {
@@ -77,14 +76,12 @@ client.on("messageCreate", async (message) => {
       'My name is Valtteri BOTas, a Discord Bot. I am still in development, so I don\'t have many commands yet. You can ask me things like: "When is the next GP?" or "Who Are You?"'
     );
   } else if (
-    message.content === "When is the next GP?" ||
-    message.content === "When is the next race?"
+    message.content === "When is the next GP?" || message.content === "When is the next race?"
   ) {
     const currentDate = new Date().toISOString().split("T")[0]; // Creates new date object, makes it a string with ISO formatting, splits it at the T, and takes the first part (the date)
     message.reply("The next GP is " + getGP(currentDate));
   } else if (
-    message.content === "Who are you?" ||
-    message.content === "Who is Valterri Bottas?"
+    message.content === "Who are you?" || message.content === "Who is Valterri Bottas?"
   ) {
     message.reply(
       "I am a Discord Bot, however the real Valtteri Bottas is a Finnish racing driver currently competing in Formula 1 for Alfa Romeo."
@@ -92,21 +89,13 @@ client.on("messageCreate", async (message) => {
   } else if (message.content === "Give me a Valtteri Bottas fact") {
     message.reply(getBottasFact());
   } else if (message.content.toLowerCase().startsWith("does valtteri like")) {
-    const query = message.content
-      .replace(/does valtteri like/i, "")
-      .replace("?", "")
-      .trim()
-      .toUpperCase();
+    const query = message.content.replace(/does valtteri like/i, "").replace("?", "").trim().toUpperCase();
     console.log(query);
     message.reply(getBottasOpinion(query));
   } else if (
     message.content.startsWith("What are weather and track conditions like at")
   ) {
-    const circuit = message.content
-      .replace(/What are weather and track conditions like at/i, "")
-      .replace("?", "")
-      .trim()
-      .toLowerCase();
+    const circuit = message.content.replace(/What are weather and track conditions like at/i, "").replace("?", "").trim().toLowerCase();
     console.log(circuit);
     const conditions = await weatherApi.getWeatherConditions(circuit);
     if (conditions) {
@@ -149,10 +138,14 @@ client.on("messageCreate", async (message) => {
     } else {
       message.reply("Sorry, we can't pull that info right now.");
     }
+  } else if (message.content.toLowerCase().startsWith("which driver is in")) {
+    const query = message.content.replace(/which driver is in/i, "").replace("?", "").trim().toUpperCase();
+    console.log(query);
+    message.reply(await getWDCPlaces(query));
   }
 });
 
-client.on("interactionCreate", (interaction) => {
+client.on("interactionCreate", (interaction) => { //This is the event listener for slash commands
   slashCommands.handleSlashCommand(interaction);
 });
 
